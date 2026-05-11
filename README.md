@@ -2,7 +2,7 @@
 
 **Engineer who writes the tools that turn lab data into decisions.**
 
-Systems validation and optical engineer in San Jose, California. I build Python tooling for sensor characterization, image processing, and automated test — most recently on Time-of-Flight depth modules at Apple and Meta.
+Systems validation and optical engineer. I build Python programs to model sensors based on physics.
 
 ---
 
