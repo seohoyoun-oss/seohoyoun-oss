@@ -15,7 +15,10 @@ Systems validation and optical engineer. I build Python tools to model sensors b
 ![Matplotlib](https://img.shields.io/badge/Matplotlib-11557C?style=for-the-badge&logo=plotly&logoColor=white)
 ![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
 ![Pytest](https://img.shields.io/badge/Pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
@@ -32,6 +35,23 @@ Systems validation and optical engineer. I build Python tools to model sensors b
 ---
 
 ## Featured Projects
+
+### [Dynamic Program Visualization](https://github.com/seohoyoun-oss/epm-tool-dynamic-visualization)
+
+An AI-powered program schedule tool for hardware program managers — a Gantt chart that thinks. Every task carries a live risk score recomputed on every edit; inject an issue and the AI identifies which tasks are affected, previews the schedule and health-metric impact before you commit, and proposes three mitigation paths with trade-offs that can be applied in one click.
+
+Built around a real-world pain point: issues surface without warning, teams scramble, and alignment breaks down. This tool makes the impact visible instantly and gives the program manager a structured, AI-assisted process to recover. Demo scenario is an 18-month robot vacuum launch spanning concept through EVT/DVT/PVT to mass production.
+
+**Stack:** Next.js 16 · TypeScript · Tailwind CSS · Zustand + Immer · Framer Motion · Custom SVG Gantt · Anthropic API (Claude Sonnet) · Vercel
+
+- Custom SVG Gantt with drag-to-move/resize bars, snapping to hardware-style B/M/E (1st/11th/21st) date boundaries
+- Live risk scoring per task plus a program health dashboard (confidence, max slip, critical/at-risk/on-track counts)
+- AI-identified affected tasks on issue entry, with hover preview of the full schedule impact before applying
+- AI Risk Navigator: three mitigation options with trade-offs and a recommended path, committable in one click
+- On-demand AI schedule audit covering risk blind spots, owner conflicts, and schedule compression
+- Export to 8 formats: PNG, SVG, PDF, CSV, XLSX, and MS Project (MSPDI XML, MPP, MPX)
+
+---
 
 ### [AI-Powered FMEA Assistant](https://github.com/seohoyoun-oss/epm-tool-fmea) · [Live Demo](https://epm-tool-fmea-qkrh.vercel.app)
 
@@ -59,6 +79,14 @@ Python tool that simulates Time-of-Flight depth data with physics-based noise mo
 - Four output figures: depth map comparison, empirical vs. theoretical noise curves, residual histograms at multiple distances, step-edge scene with flying-pixel boundary
 - Configurable photon density spans low-cost consumer to industrial ToF regimes
 - Deterministic output (`np.random.seed`) for reproducible characterization runs
+
+---
+
+### Design of Experiments Planning Assistant *(in development)*
+
+Streamlit app that walks a hardware engineer from factor entry through fractional-factorial design generation, measurement upload, OLS regression fit, and main-effect plots — compressing hours of error-prone spreadsheet DOE setup into minutes. Repository goes public with the v0.1 deployment.
+
+**Stack:** Python 3.11 · Streamlit · pyDOE2 · statsmodels · pandas · Matplotlib
 
 ---
 
