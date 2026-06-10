@@ -36,7 +36,7 @@ Systems validation and optical engineer. I build Python tools to model sensors b
 
 ## Featured Projects
 
-### [Dynamic Program Visualization](https://github.com/seohoyoun-oss/epm-tool-dynamic-visualization)
+### [Dynamic Program Visualization](https://github.com/seohoyoun-oss/epm-tool-dynamic-visualization) · [Live Demo](https://epm-tool-dynamic-visualization.vercel.app)
 
 An AI-powered program schedule tool for hardware program managers — a Gantt chart that thinks. Every task carries a live risk score recomputed on every edit; inject an issue and the AI identifies which tasks are affected, previews the schedule and health-metric impact before you commit, and proposes three mitigation paths with trade-offs that can be applied in one click.
 
