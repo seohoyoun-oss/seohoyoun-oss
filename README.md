@@ -26,6 +26,9 @@ Systems validation and optical engineer. I build Python tools to model and valid
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 ![Anthropic](https://img.shields.io/badge/Anthropic_API-CC785C?style=for-the-badge&logoColor=white)
+![Vitest](https://img.shields.io/badge/Vitest-6E9F18?style=for-the-badge&logo=vitest&logoColor=white)
+![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=for-the-badge&logo=playwright&logoColor=white)
+![Redis](https://img.shields.io/badge/Upstash_Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 ![LaTeX](https://img.shields.io/badge/LaTeX-008080?style=for-the-badge&logo=latex&logoColor=white)
 ![MATLAB](https://img.shields.io/badge/MATLAB-0076A8?style=for-the-badge&logo=mathworks&logoColor=white)
@@ -40,57 +43,6 @@ Systems validation and optical engineer. I build Python tools to model and valid
 
 ## Featured Projects
 
-### [Dynamic Program Visualization](https://github.com/seohoyoun-oss/epm-tool-dynamic-visualization) · [Live Demo](https://epm-tool-dynamic-visualization.vercel.app)
-
-An AI-powered program schedule tool for hardware program managers — a Gantt chart that thinks. Every task carries a live risk score recomputed on every edit; inject an issue and the AI identifies which tasks are affected, previews the schedule and health-metric impact before you commit, and proposes three mitigation paths with trade-offs that can be applied in one click.
-
-Built around a real-world pain point: issues surface without warning, teams scramble, and alignment breaks down. This tool makes the impact visible instantly and gives the program manager a structured, AI-assisted process to recover. The demo program is an 18-month robot vacuum launch — 27 tasks across 10 phases, from concept through EVT/DVT/PVT to mass-production ramp.
-
-**Stack:** Next.js 16 · TypeScript · Tailwind CSS · Zustand + Immer · Framer Motion · Custom SVG Gantt · Anthropic API (`claude-sonnet-4-6`) · jsPDF + SheetJS · Vercel
-
-- Custom SVG Gantt with drag-to-move/resize bars, snapping to hardware-style B/M/E (1st/11th/21st) date boundaries
-- Live risk scoring per task plus a program health dashboard (confidence, max slip, critical/at-risk/on-track counts)
-- AI-identified affected tasks on issue entry, with hover preview of the full schedule impact before applying
-- AI Risk Navigator: three mitigation options with trade-offs and a recommended path, committable in one click
-- Streaming, on-demand AI schedule audit covering risk blind spots, owner conflicts, and schedule compression
-- Export to 8 formats: PNG, SVG, PDF, CSV, XLSX, and MS Project (MSPDI XML, MPP, MPX)
-- Hardened AI routes — retry budget, hard stream abort, bounded findings, and sanitized error surfacing
-
----
-
-### [AI-Powered FMEA Assistant](https://github.com/seohoyoun-oss/epm-tool-fmea) · [Live Demo](https://epm-tool-fmea-qkrh.vercel.app)
-
-A full-stack web application that accelerates Failure Mode and Effects Analysis for hardware program managers. Enter a design change description; the tool generates a structured FMEA table, ranks rows by Risk Priority Number, and plots them on an Action Priority Matrix mapping risk against implementation cost.
-
-Built after running FMEA reviews on depth-sensing modules — the bottleneck on quality was always PM experience. The goal: compress that experience gap with a language model.
-
-**Stack:** React 18 · Vite · Tailwind CSS · Anthropic API (`claude-sonnet-4-6`) · Vercel serverless · PapaParse · html2canvas
-
-- Four-step workflow — review the preloaded Engineering Requirements Specification, enter the design change, generate, review and export
-- Prompt scoped to failure modes introduced by the stated design change, not a generic system survey
-- Editable table showing the top 10 rows by RPN, with scores clamped to 1–10 and live RPN recalculation
-- Action Priority Matrix with P1–P4 quadrants and animated, hoverable dots per row
-- Export to CSV or PNG for team working documents and slide decks
-- Security-hardened: API key proxied server-side, response headers, request body limits, CSV-injection escaping, and no error disclosure
-
----
-
-### Monocular Metric-Depth Validation Harness *(repository private)*
-
-A reproducible harness that measures **where a learned monocular depth model stops being trustworthy** — capturing color frames on a tablet with no depth sensor at all, scoring predicted depth against a physically measured ground-truth plane, and contrasting the learned model's error against a first-principles Time-of-Flight noise model on one plot.
-
-The finding it is built to show: a learned model and a physical depth sensor fail for different reasons. The sensor degrades from photon statistics (error linear in distance); the model degrades from missing visual cues (error that drifts and curves with range and texture). The deliverable is an operating envelope — *usable for AR placement beyond 1.5 m, not for sub-centimeter metrology* — stated as an engineering discipline, not a benchmark score.
-
-**Stack:** Python · NumPy · Matplotlib · pandas · Depth Pro (Apple) · Depth Anything V2 (PyTorch / Hugging Face)
-
-- Dense per-pixel ground truth from a measured plane — perpendicular for a single distance, rotated for a closed-form depth gradient
-- Literature-standard metrics: AbsRel, RMSE, and δ < 1.25ⁿ thresholds, comparable to published model papers
-- Least-squares scale-and-shift alignment for relative-depth models; metric models scored directly and labeled as such
-- Stress axes for distance and surface texture, with documented ground-truth error budget and assumptions
-- Runs end to end on synthetic data with no model weights and no photos, so the pipeline is unit-testable
-
----
-
 ### [ToF Depth Sensor Characterization Tool](https://github.com/seohoyoun-oss/tof-depth-sensor-characterization)
 
 Python tool that simulates Time-of-Flight depth data with physics-based noise models and validates them against empirical statistics. Shot noise, ambient noise, residual-histogram validation, step-edge artifact scenes — the kind of analysis run on real hardware.
@@ -102,23 +54,6 @@ Python tool that simulates Time-of-Flight depth data with physics-based noise mo
 - Four output figures: depth map comparison, empirical vs. theoretical noise curves with the shot/ambient crossover marked, residual histograms at multiple distances, and a step-edge scene with flying-pixel boundary
 - Companion physics study guide (PDF) deriving the noise models behind the simulation
 - Configurable photon density spans low-cost consumer to industrial ToF regimes, with deterministic seeding for reproducible runs
-
----
-
-### [Building a 6-inch Telescope by Hand](https://telescope-project.vercel.app) *(website)*
-
-A personal site telling the story of grinding, figuring, and testing a 6-inch Newtonian reflector mirror by hand — from a raw Pyrex blank through ten months of grit, water, and shadow to first light — alongside a spec sheet of what the finished instrument actually measures. Designed at f/9; the mirror came out at f/9.5.
-
-Plain HTML, CSS, and JavaScript — no framework and no build step, deployed as a static site.
-
-**Stack:** HTML · CSS · JavaScript · Vercel
-
-- Scroll-driven hero and reveal animations written by hand, with a six-frame gallery and a lightbox at full resolution
-- Spec sheet reporting as-built values against design intent: 152 mm aperture, 1443 mm focal length, f/9.5, 0.91″ Rayleigh limit, ≈ 470× naked-eye light grasp
-- Every photograph ships as AVIF with a JPEG fallback, generated with macOS `sips` — no image tooling in the pipeline
-- Hardened deploy: strict CSP with a hash for the single inline script, HSTS, frame and MIME protections, and tuned cache lifetimes
-- Split licensing — MIT for the code, all rights reserved for the photographs and prose, with third-party fonts and marks scoped separately
-- Structured so sections on stars, planets, and the wider universe can be added later without a redesign
 
 ---
 
